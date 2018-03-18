@@ -13,9 +13,9 @@ class KeysButtons extends Component {
 		// selectedValues: { selectedKeyIndex } is used because selectedKeyIndex is a child obj of
 		// selectedValues
 		const { keys, selectedValues: { selectedKeyIndex } } = this.props;
-		const keyButtons = keys.map(key => {
-			return key.shortKey ? '/' : [key.key]
-		})
+		const keyButtons = keys.map(key => 
+			(key.shortKey ? '/' : [key.key])
+		);
 		return (
 			<View style={componentStyle}>
 				<Text h3>Key</Text>
