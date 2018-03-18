@@ -1,5 +1,19 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "sdkVersion": "25.0.0",
+    "description": "An new project",
+    "slug": "guitar-keys",
+    "privacy": "public",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./src/assets/icons/app-icon.png",
+    "loading": {
+      "icon": "./src/assets/icons/loading-icon.png",
+      "hideExponentText": false
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    }
   }
 }
