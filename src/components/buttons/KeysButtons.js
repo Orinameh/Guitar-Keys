@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View } from 'react-native';
 import { Text, ButtonGroup } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { selectKeyIndex } from '../../store/actions';
+import { BUTTON_GROUP_STYLES } from '../../utils/Constants';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class KeysButtons extends Component {
 
 	render() {
-		const { componentStyle, containerStyle, buttonStyle, selectedTextStyle } = styles;
+		const { componentStyle, containerStyle, buttonStyle, selectedTextStyle } = BUTTON_GROUP_STYLES;
 		// selectedValues: { selectedKeyIndex } is used because selectedKeyIndex is a child obj of
 		// selectedValues
 		const { keys, selectedValues: { selectedKeyIndex } } = this.props;
@@ -19,7 +19,7 @@ class KeysButtons extends Component {
 		return (
 			<View style={componentStyle}>
 				<Text h3>Key</Text>
-				<Text h1>C</Text>
+				<Text h1>{keys[selectedKeyIndex].key}</Text>
 				<ButtonGroup
 					onPress={index => this.props.selectKeyIndex(index)}
 					selectedIndex={selectedKeyIndex}
@@ -40,22 +40,22 @@ const mapStateToProps = ({ keys, selectedValues }) => ({
 
 export default connect(mapStateToProps, { selectKeyIndex })(KeysButtons);
 
-const styles = StyleSheet.create({
-	componentStyle: {
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	containerStyle: {
-		height: 40,
-		width: SCREEN_WIDTH * 0.9
-	},
-	buttonStyle: {
-		backgroundColor: '#fff',
-	},
+// const styles = StyleSheet.create({
+// 	componentStyle: {
+// 		justifyContent: 'center',
+// 		alignItems: 'center',
+// 	},
+// 	containerStyle: {
+// 		height: 40,
+// 		width: SCREEN_WIDTH * 0.9
+// 	},
+// 	buttonStyle: {
+// 		backgroundColor: '#fff',
+// 	},
 
-	selectedTextStyle: {
-		color: '#FF3D57',
-		fontWeight: '900',
-	}
+// 	selectedTextStyle: {
+// 		color: '#FF3D57',
+// 		fontWeight: '900',
+// 	}
 	
-});
+// });

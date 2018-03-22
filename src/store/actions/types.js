@@ -1,2 +1,6 @@
 export const SELECT_KEY_INDEX = 'SELECT_KEY_INDEX';
 export const SELECT_CAPO = 'SELECT_CAPO';
+
+export const OPEN_CHORDS_MODAL = 'OPEN_CHORDS_MODAL';
+export const CLOSE_CHORDS_MODAL = 'CLOSE_CHORDS_MODAL';
+

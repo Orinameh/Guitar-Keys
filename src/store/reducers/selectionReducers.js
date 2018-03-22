@@ -5,22 +5,29 @@ import {
 
 const INITIAL_STATE = {
 	selectedKeyIndex: 0,
-	selectedCapo: 7
+	selectedCapo: 7,
+	capoKeyIndex: 7 /* selectedKeyIndex + selectedCapo */
 };
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case SELECT_KEY_INDEX: {
+			let capoKeyIndex = state.selectedCapo + action.payload;
+			capoKeyIndex = capoKeyIndex >= 12 ? capoKeyIndex - 12 : capoKeyIndex;
 			return {
 				...state,
-				selectKeyIndex: action.payload
+				selectedKeyIndex: action.payload,
+				capoKeyIndex
 			};
 		}
 
 		case SELECT_CAPO: {
+			let capoKeyIndex = state.selectedKeyIndex + action.payload;
+			capoKeyIndex = capoKeyIndex >= 12 ? capoKeyIndex : capoKeyIndex;
 			return {
 				...state,
-				selectedCapo: action.payload
+				selectedCapo: action.payload,
+				capoKeyIndex
 			};
 		}
 
