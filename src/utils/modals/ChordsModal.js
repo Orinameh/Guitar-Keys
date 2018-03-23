@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Modal, StyleSheet } from 'react-native';
-import { Text, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { closeChordsModal } from '../../store/actions';
 import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../Constants';
@@ -22,7 +22,7 @@ class ChordsModal extends Component {
 						<View style={buttonContainerStyle}>
 							<Button 
 								raised
-								icon={{ name: 'closed' }}
+								icon={{ name: 'close' }}
 								title='close'
 								backgroundColor='#2196F3'
 								onPress={() => this.props.closeChordsModal()}

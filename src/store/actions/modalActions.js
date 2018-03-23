@@ -3,12 +3,12 @@ import {
 	CLOSE_CHORDS_MODAL
 } from './types';
 
-export const openChordModal = () => ({
+export const openChordsModal = () => ({
 	type: OPEN_CHORDS_MODAL,
 	payload: true
 });
 
-export const closeChordModal = () => ({
+export const closeChordsModal = () => ({
 	type: CLOSE_CHORDS_MODAL,
 	payload: false
 });

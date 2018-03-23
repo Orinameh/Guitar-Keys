@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { openChordModal } from '../../store/actions';
+import { openChordsModal } from '../../store/actions';
 
 
 class ViewChordButton extends Component {
@@ -14,11 +14,11 @@ class ViewChordButton extends Component {
 					icon={{ name: 'library-music' }}
 					title='View transposed chord'
 					backgroundColor='#2196F3'
-					onPress={() => this.props.openChordModal()}
+					onPress={() => this.props.openChordsModal()}
 				/>
 			</View>
 		);
 	}
 }
 
-export default connect(null, { openChordModal })(ViewChordButton);
+export default connect(null, { openChordsModal })(ViewChordButton);

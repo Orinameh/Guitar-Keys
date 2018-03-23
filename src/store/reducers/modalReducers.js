@@ -1,13 +1,13 @@
 import {
 	OPEN_CHORDS_MODAL,
 	CLOSE_CHORDS_MODAL
-} from '../actions';
+} from '../actions/types';
 
 const INITIAL_STATE = {
 	chordsModalIsOpen: false
 };
 
-export default(state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case OPEN_CHORDS_MODAL:
 			return { chordsModalIsOpen: action.payload };
