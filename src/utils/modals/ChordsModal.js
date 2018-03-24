@@ -37,7 +37,7 @@ class ChordsModal extends Component {
 					</View>
 
 					<View style={itemContainerStyle}>
-						<Text style={itemStyle}>
+						<Text style={[itemStyle]}>
 							{keys[capoChordIndex].key}
 						</Text>
 					</View>
@@ -51,7 +51,8 @@ class ChordsModal extends Component {
 		const { 
 			modalStyle, containerStyle, buttonContainerStyle,
 			headerStyle, contentStyle, contentRowStyle,
-			itemContainerStyle, itemHeadStyle, itemStyle
+			itemContainerStyle, itemHeadStyle, itemStyle,
+			selectedTextStyle
 		} = styles;
 
 		const { selectedValues: { selectedKeyIndex, selectedCapo }, keys } = this.props;
@@ -73,19 +74,19 @@ class ChordsModal extends Component {
 						<View style={contentStyle}>	
 							<View style={contentRowStyle}>
 								<View style={itemContainerStyle}>
-									<Text style={[itemStyle, itemHeadStyle]}>
+									<Text style={[itemStyle, itemHeadStyle, selectedTextStyle]}>
 										Key { keys[selectedKeyIndex].key }
 									</Text>
 								</View>
 
 								<View style={itemContainerStyle}>
-									<Text style={[itemStyle, itemHeadStyle]}>
+									<Text style={[itemStyle, itemHeadStyle, selectedTextStyle]}>
 										⇒
 									</Text>
 								</View>
 
 								<View style={itemContainerStyle}>
-									<Text style={[itemStyle, itemHeadStyle]}>
+									<Text style={[itemStyle, itemHeadStyle, selectedTextStyle]}>
 										Capo { selectedCapo } 
 									</Text>
 								</View>
@@ -159,6 +160,10 @@ const styles = StyleSheet.create({
 	buttonContainerStyle: {
 		paddingBottom: 10,
 	},
+	selectedTextStyle: {
+		color: '#FF3D57',
+		fontWeight: '900',
+	}
 });
 
 const mapStateToProps = ({ modal, selectedValues, keys }) => ({ modal, selectedValues, keys });

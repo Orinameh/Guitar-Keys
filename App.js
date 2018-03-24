@@ -13,7 +13,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-
-// Banner placementID: 2009957729266899_2009971822598823
-// Insterstitial placementID: 2009957729266899_2009974189265253

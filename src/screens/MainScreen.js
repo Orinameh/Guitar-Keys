@@ -6,6 +6,7 @@ import KeysButtons from '../components/buttons/KeysButtons';
 import GuitarButtons from '../components/buttons/GuitarButtons';
 import GuitarKey from '../components//buttons/GuitarKey';
 import ViewChordButton from '../components/buttons/ViewChordButton';
+import BottomBannerAd from '../config/BottomBannerAd';
 import ChordsModal from '../utils/modals/ChordsModal';
 import icon from '../assets/icons/pure-icon.png';
 import { STATUS_BAR_HEIGHT, SCREEN_WIDTH } from '../utils/Constants';
@@ -21,7 +22,7 @@ const cacheImage = images => images.map(image => {
 class MainScreen extends Component {
 
 	static navigationOptions = () => ({
-		title: 'Guitar Keys',
+		title: 'Guitar Capo Keys',
 		headerStyle: {
 			height: Platform.OS === 'android' ? 34 + STATUS_BAR_HEIGHT : 34,
 			backgroundColor: '#34495e'
@@ -72,7 +73,7 @@ class MainScreen extends Component {
 				{/* View Chord Button */}
 				<ViewChordButton style={buttonContainerStyle} />
 
-				{/* Banner Ads */}
+				<BottomBannerAd />
 			</View>
 		);
 	}

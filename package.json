@@ -1,6 +1,7 @@
 {
-  "name": "guitar-keys",
+  "name": "guitar-capo-keys",
   "version": "0.1.0",
+  "description": "A transposing tool that helps guitarists know where to place their Capos",
   "private": true,
   "devDependencies": {
     "eslint-config-rallycoding": "^3.2.0",
