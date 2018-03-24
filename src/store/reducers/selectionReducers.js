@@ -23,7 +23,7 @@ export default (state = INITIAL_STATE, action) => {
 
 		case SELECT_CAPO: {
 			let capoKeyIndex = state.selectedKeyIndex + action.payload;
-			capoKeyIndex = capoKeyIndex >= 12 ? capoKeyIndex : capoKeyIndex;
+			capoKeyIndex = capoKeyIndex >= 12 ? capoKeyIndex - 12 : capoKeyIndex;
 			return {
 				...state,
 				selectedCapo: action.payload,

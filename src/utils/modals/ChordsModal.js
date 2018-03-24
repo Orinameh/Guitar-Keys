@@ -1,15 +1,61 @@
 import React, { Component } from 'react';
 import { View, Modal, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Text } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { closeChordsModal } from '../../store/actions';
 import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../Constants';
 
 class ChordsModal extends Component {
+
+	renderChordRows() {
+		const { contentRowStyle, itemContainerStyle, itemStyle } = styles;
+		const { selectedValues: { selectedKeyIndex, selectedCapo }, keys } = this.props;
+
+		let count = 0;
+
+		return keys.map((key, i) => {
+			const keyChordIndex = (count + selectedKeyIndex) > 11 ?
+				(count + selectedKeyIndex) - 12 : (count + selectedKeyIndex);
+
+			const capoChordIndex = (keyChordIndex + selectedCapo) > 11 ?
+				(keyChordIndex + selectedCapo) - 12 : (keyChordIndex + selectedCapo);
+
+			count++;
+
+			return (
+				<View key={i} style={contentRowStyle}>
+					<View style={itemContainerStyle}>
+						<Text style={itemStyle}>
+							{keys[keyChordIndex].key}
+						</Text>
+					</View>
+
+					<View style={itemContainerStyle}>
+						<Text style={itemStyle}>
+							⇒
+						</Text>
+					</View>
+
+					<View style={itemContainerStyle}>
+						<Text style={itemStyle}>
+							{keys[capoChordIndex].key}
+						</Text>
+					</View>
+					
+				</View>
+			);
+		});
+	}
+
 	render() {
 		const { 
-			modalStyle, containerStyle, buttonContainerStyle
+			modalStyle, containerStyle, buttonContainerStyle,
+			headerStyle, contentStyle, contentRowStyle,
+			itemContainerStyle, itemHeadStyle, itemStyle
 		} = styles;
+
+		const { selectedValues: { selectedKeyIndex, selectedCapo }, keys } = this.props;
+
 		return (
 			<Modal
 				transparent
@@ -19,12 +65,41 @@ class ChordsModal extends Component {
 			>
 				<View style={modalStyle}>
 					<View style={containerStyle}>
+						<View style={headerStyle}>
+							<Text h4 style={{ color: 'white' }}>
+								Chords Transition
+							</Text>
+						</View>
+						<View style={contentStyle}>	
+							<View style={contentRowStyle}>
+								<View style={itemContainerStyle}>
+									<Text style={[itemStyle, itemHeadStyle]}>
+										Key { keys[selectedKeyIndex].key }
+									</Text>
+								</View>
+
+								<View style={itemContainerStyle}>
+									<Text style={[itemStyle, itemHeadStyle]}>
+										⇒
+									</Text>
+								</View>
+
+								<View style={itemContainerStyle}>
+									<Text style={[itemStyle, itemHeadStyle]}>
+										Capo { selectedCapo } 
+									</Text>
+								</View>
+							</View>
+
+							{this.renderChordRows()}
+							
+						</View>
 						<View style={buttonContainerStyle}>
 							<Button 
 								raised
 								icon={{ name: 'close' }}
 								title='close'
-								backgroundColor='#2196F3'
+								backgroundColor='#34495e'
 								onPress={() => this.props.closeChordsModal()}
 							/>		
 						</View>
@@ -50,9 +125,40 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white'
 	},
 
+	headerStyle: {
+		height: 40,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#34495e'
+	},
+	contentStyle: {
+		flex: 1,
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		marginBottom: 10,
+	},
+	contentRowStyle: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	itemContainerStyle: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	itemHeadStyle: {
+		fontWeight: '900',
+		fontSize: 14,
+	},
+	itemStyle: {
+		alignItems: 'center',
+		fontSize: 16,
+	},
 	buttonContainerStyle: {
 		paddingBottom: 10,
-	}
+	},
 });
 
 const mapStateToProps = ({ modal, selectedValues, keys }) => ({ modal, selectedValues, keys });

@@ -13,7 +13,7 @@ class ViewChordButton extends Component {
 					raised
 					icon={{ name: 'library-music' }}
 					title='View transposed chord'
-					backgroundColor='#2196F3'
+					backgroundColor='#34495e'
 					onPress={() => this.props.openChordsModal()}
 				/>
 			</View>

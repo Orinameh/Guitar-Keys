@@ -14,7 +14,7 @@ class GuitarButtons extends Component {
 		
 		return (
 			<View style={{ justifyContent: 'center', alignItems: 'center' }} >
-				<Text h3>Capo</Text>
+				<Text h3>Capo Fret</Text>
 				<Text h1 style={{ marginTop: 2 }}>{selectedCapo}</Text>
 				<ButtonGroup
 					onPress={index => this.props.selectCapo(index + 1)}

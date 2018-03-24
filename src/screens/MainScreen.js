@@ -24,7 +24,7 @@ class MainScreen extends Component {
 		title: 'Guitar Keys',
 		headerStyle: {
 			height: Platform.OS === 'android' ? 34 + STATUS_BAR_HEIGHT : 34,
-			backgroundColor: '#2196F3'
+			backgroundColor: '#34495e'
 		},
 		headerTitleStyle: {
 			// marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
 	dividerStyle: {
 		width: SCREEN_WIDTH * 0.9,
-		backgroundColor: '#2196F3'
+		backgroundColor: '#34495e'
 	},
 	buttonContainerStyle: {
 		width: SCREEN_WIDTH,
